@@ -10,11 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let titleLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
+        
+        titleLabel.text = "times_someone"
+        titleLabel.textAlignment = .center
+        view.addSubview(titleLabel)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        titleLabel.frame = view.bounds
+    }
 
 }
 
