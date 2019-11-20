@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimelineViewController: UIViewController {
 
     let titleLabel = UILabel()
     
