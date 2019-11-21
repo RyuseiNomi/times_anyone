@@ -1,5 +1,5 @@
 //
-//  GetTimelineUsecase.swift
+//  ReportsPresenter.swift
 //  times_someone
 //
 //  Created by 能美龍星 on 2019/11/20.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class GetTimelineUsecase {
+class ReportsPresenter {
     
-    public func getAllReports() {
+    func showReports() {
         
     }
 }

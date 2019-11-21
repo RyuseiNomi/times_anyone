@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol GetReportProtocol {
+    func getAllReports()
+}
+
+protocol SetReportProtocol {
+    func setReport()
+}
