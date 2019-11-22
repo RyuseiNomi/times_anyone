@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ReportsController.swift
 //  times_someone
 //
 //  Created by 能美龍星 on 2019/11/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ReportsViewController: UIViewController {
 
     let titleLabel = UILabel()
     
