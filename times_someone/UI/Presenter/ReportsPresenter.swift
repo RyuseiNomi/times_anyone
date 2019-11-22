@@ -10,7 +10,10 @@ import Foundation
 
 class ReportsPresenter {
     
-    func showReports() {
-        
+    /**
+     * Show reports who one person of
+     */
+    @objc func showReports() {
+        print("bbb")
     }
 }
