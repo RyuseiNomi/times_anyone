@@ -9,5 +9,9 @@
 import Foundation
 
 protocol ReportsView {
-    func showReports()
+    func getReports()
+}
+
+protocol ReportPostView {
+    func postReport()
 }

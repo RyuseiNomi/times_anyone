@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReportPostPresenter {
+class ReportPostPresenter: ReportPostView {
     
     /**
      * Post report to firestore

@@ -37,7 +37,7 @@
 		1B11EE8F2382DE4C00A224D6 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B11EE6D2382D58800A224D6 /* abseil.framework */; };
 		1BD3B31223842392001AA653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */; };
 		1BD3B33123857BD8001AA653 /* ReportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B32D23857BD8001AA653 /* ReportsPresenter.swift */; };
-		1BD3B33223857BD8001AA653 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B33023857BD8001AA653 /* ReportsViewController.swift */; };
+		1BD3B33223857BD8001AA653 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B33023857BD8001AA653 /* ReportDetailViewController.swift */; };
 		1BD3B33A23857BE3001AA653 /* ReportRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B33523857BE3001AA653 /* ReportRepository.swift */; };
 		1BD3B33B23857BE3001AA653 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B33723857BE3001AA653 /* Report.swift */; };
 		1BD3B33C23857BE3001AA653 /* GetReportsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B33923857BE3001AA653 /* GetReportsUsecase.swift */; };
@@ -45,6 +45,7 @@
 		1BD3B3412386CA01001AA653 /* SetReportUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B3402386CA01001AA653 /* SetReportUsecase.swift */; };
 		1BD3B3432386CF2A001AA653 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B3422386CF2A001AA653 /* User.swift */; };
 		1BD3B3452386D5BF001AA653 /* ReportPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B3442386D5BF001AA653 /* ReportPostPresenter.swift */; };
+		1BD3B3832388FC12001AA653 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B3822388FC12001AA653 /* ReportListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +102,7 @@
 		1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B11EE902382DF9F00A224D6 /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Build; path = Carthage/Build; sourceTree = "<group>"; };
 		1BD3B32D23857BD8001AA653 /* ReportsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsPresenter.swift; sourceTree = "<group>"; };
-		1BD3B33023857BD8001AA653 /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		1BD3B33023857BD8001AA653 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		1BD3B33523857BE3001AA653 /* ReportRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportRepository.swift; sourceTree = "<group>"; };
 		1BD3B33723857BE3001AA653 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		1BD3B33923857BE3001AA653 /* GetReportsUsecase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetReportsUsecase.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		1BD3B3402386CA01001AA653 /* SetReportUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReportUsecase.swift; sourceTree = "<group>"; };
 		1BD3B3422386CF2A001AA653 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1BD3B3442386D5BF001AA653 /* ReportPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPostPresenter.swift; sourceTree = "<group>"; };
+		1BD3B3822388FC12001AA653 /* ReportListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +272,8 @@
 		1BD3B32F23857BD8001AA653 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1BD3B33023857BD8001AA653 /* ReportsViewController.swift */,
+				1BD3B33023857BD8001AA653 /* ReportDetailViewController.swift */,
+				1BD3B3822388FC12001AA653 /* ReportListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD3B3452386D5BF001AA653 /* ReportPostPresenter.swift in Sources */,
+				1BD3B3832388FC12001AA653 /* ReportListViewController.swift in Sources */,
 				1B11EE2F2382D21A00A224D6 /* AppDelegate.swift in Sources */,
 				1BD3B33F2386C111001AA653 /* ReportsView.swift in Sources */,
 				1BD3B33B23857BE3001AA653 /* Report.swift in Sources */,
@@ -461,7 +465,7 @@
 				1BD3B3432386CF2A001AA653 /* User.swift in Sources */,
 				1BD3B33C23857BE3001AA653 /* GetReportsUsecase.swift in Sources */,
 				1BD3B33123857BD8001AA653 /* ReportsPresenter.swift in Sources */,
-				1BD3B33223857BD8001AA653 /* ReportsViewController.swift in Sources */,
+				1BD3B33223857BD8001AA653 /* ReportDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

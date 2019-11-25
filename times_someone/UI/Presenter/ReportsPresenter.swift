@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ReportsPresenter {
+class ReportsPresenter: ReportsView {
     
     /**
      * Show reports who one person of
      */
-    @objc func showReports() {
+    @objc func getReports() {
         print("bbb")
     }
 }
