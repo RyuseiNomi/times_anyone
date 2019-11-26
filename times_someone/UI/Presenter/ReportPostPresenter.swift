@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class ReportPostPresenter: ReportPostView {
-    
+class ReportPostPresenter: UIViewController, ReportPostView
+{
     /**
      * Post report to firestore
      */

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ReportsPresenter: ReportsView {
-    
+class ReportsPresenter: ReportsView
+{
     /**
      * Show reports who one person of
      */
