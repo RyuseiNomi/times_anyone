@@ -32,19 +32,20 @@ class ReportListViewController: UITableViewController
     
     override func viewDidLoad() {
         let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10*2, y: view.frame.height - view.frame.height/12)
+        buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
         navigationController?.view.addSubview(buttonView)
         //TODO: ターゲットをReportPostPresenterに向ける
-        createReportButton.addTarget(self, action: #selector(reportPostPresenter.postReport), for: .touchUpInside)
+        createReportButton.addTarget(reportPostPresenter, action: Selector(("postReport")), for: .touchUpInside)
         buttonView.addSubview(createReportButton)
         buttonView.bringSubviewToFront(view)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        createReportButton.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        createReportButton.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         createReportButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         createReportButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
-        createReportButton.setTitle("投稿", for: UIControl.State.normal)
+        createReportButton.setTitle("+", for: UIControl.State.normal)
+        createReportButton.layer.cornerRadius = 30.0
     }
 }
