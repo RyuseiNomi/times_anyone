@@ -35,6 +35,7 @@
 		1B11EE8D2382DC1100A224D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */; };
 		1B11EE8E2382DC1100A224D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */; };
 		1B11EE8F2382DE4C00A224D6 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B11EE6D2382D58800A224D6 /* abseil.framework */; };
+		1B91198E2393A27E0007E7A9 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B91198D2393A27E0007E7A9 /* CustomPresentationController.swift */; };
 		1BC12788238D7446005C2188 /* PostModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC12787238D7446005C2188 /* PostModalViewController.swift */; };
 		1BD3B31223842392001AA653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */; };
 		1BD3B33123857BD8001AA653 /* ReportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3B32D23857BD8001AA653 /* ReportsPresenter.swift */; };
@@ -102,6 +103,7 @@
 		1B11EE892382D85A00A224D6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		1B11EE8B2382DC1100A224D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B11EE902382DF9F00A224D6 /* Build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Build; path = Carthage/Build; sourceTree = "<group>"; };
+		1B91198D2393A27E0007E7A9 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		1BC12787238D7446005C2188 /* PostModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModalViewController.swift; sourceTree = "<group>"; };
 		1BD3B32D23857BD8001AA653 /* ReportsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsPresenter.swift; sourceTree = "<group>"; };
 		1BD3B33023857BD8001AA653 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				1BD3B33023857BD8001AA653 /* ReportDetailViewController.swift */,
 				1BD3B3822388FC12001AA653 /* TimelineViewController.swift */,
 				1BC12787238D7446005C2188 /* PostModalViewController.swift */,
+				1B91198D2393A27E0007E7A9 /* CustomPresentationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				1BD3B3452386D5BF001AA653 /* ReportPostPresenter.swift in Sources */,
 				1BD3B3832388FC12001AA653 /* TimelineViewController.swift in Sources */,
 				1B11EE2F2382D21A00A224D6 /* AppDelegate.swift in Sources */,
+				1B91198E2393A27E0007E7A9 /* CustomPresentationController.swift in Sources */,
 				1BD3B33F2386C111001AA653 /* ReportsView.swift in Sources */,
 				1BD3B33B23857BE3001AA653 /* Report.swift in Sources */,
 				1BD3B3412386CA01001AA653 /* SetReportUsecase.swift in Sources */,

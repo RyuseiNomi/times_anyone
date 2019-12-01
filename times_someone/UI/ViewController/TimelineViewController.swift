@@ -42,7 +42,10 @@ class TimelineViewController: UIViewController
     
     @objc public func openPostModal() {
         let postModal = PostModalViewController()
-        navigationController?.pushViewController(postModal, animated: true)
+        postModal.modalPresentationStyle = .custom
+        postModal.transitioningDelegate = self
+        present(postModal, animated: true, completion: nil)
+        //navigationController?.pushViewController(postModal, animated: true)
     }
 }
 
@@ -68,5 +71,13 @@ extension TimelineViewController: UITableViewDelegate
         let vc = ReportDetailViewController()
         vc.titleLabel.text = "row \(indexPath.row)"
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension TimelineViewController: UIViewControllerTransitioningDelegate
+{
+    //Return Custom Modal View
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return CustomPresentationViewController(presentedViewController: presented, presenting: presenting)
     }
 }
