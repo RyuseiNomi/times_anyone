@@ -13,5 +13,5 @@ protocol ReportsView {
 }
 
 protocol ReportPostView {
-    func postReport()
+    func postReport(_ sender: SubmitButton)
 }

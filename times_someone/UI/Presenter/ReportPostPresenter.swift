@@ -14,7 +14,7 @@ class ReportPostPresenter: UIViewController, ReportPostView
     /**
      * Post report to firestore
      */
-    @objc public func postReport() {
-        print("aaa")
+    @objc public func postReport(_ sender:SubmitButton) {
+        print(sender.postContent)
     }
 }

@@ -15,6 +15,8 @@ class CustomPresentationViewController: UIPresentationController
     let margin = (x: CGFloat(30), y: CGFloat(220.0))
     
     override func presentationTransitionWillBegin() {
+        
+        // 再利用可能なcontainerViewにするためにこのような実装にしている
         guard let containerView = containerView else {
             return
         }
@@ -52,8 +54,17 @@ class CustomPresentationViewController: UIPresentationController
             }, completion: nil)
     }
     
+    override func dismissalTransitionDidEnd(_ completed: Bool) {
+        if completed {
+            overlayView.removeFromSuperview()
+        }
+    }
+    
     override func containerViewWillLayoutSubviews() {
-        
+        overlayView.frame = containerView!.bounds
+        presentedView?.frame = frameOfPresentedViewInContainerView
+        presentedView?.layer.cornerRadius = 10
+        presentedView?.clipsToBounds = true
     }
     
     override func containerViewDidLayoutSubviews() {

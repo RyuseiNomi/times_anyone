@@ -14,7 +14,6 @@ class TimelineViewController: UIViewController
     let timelineView = UITableView()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
-    let reportPostPresenter = ReportPostPresenter()
     
     override func viewDidLoad() {
         /* Time line Table View Setting */
