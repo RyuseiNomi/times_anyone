@@ -14,6 +14,7 @@ class TimelineViewController: UIViewController
     let timelineView = UITableView()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
+    let reportGetPresenter = ReportGetPresenter()
     
     override func viewDidLoad() {
         /* Time line Table View Setting */
@@ -28,6 +29,11 @@ class TimelineViewController: UIViewController
         createReportButton.addTarget(self, action: Selector(("openPostModal")), for: .touchUpInside)
         buttonView.addSubview(createReportButton)
         buttonView.bringSubviewToFront(view)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reportGetPresenter.getReports()
     }
     
     override func viewWillLayoutSubviews() {

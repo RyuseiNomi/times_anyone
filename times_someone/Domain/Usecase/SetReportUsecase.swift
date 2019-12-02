@@ -7,13 +7,22 @@
 //
 
 import Foundation
+import Firebase
 
-class SetReportUsecase: SetReportProtocol {
-    
+class SetReportUsecase: SetReportProtocol
+{
+    let saveDocument = Firestore.firestore().collection("reports").document()
     /**
      * Set a new Report to firestore
      */
-    public func setReport() {
-        
+    public func setReport(content: String) {
+        saveDocument.setData([
+            "authorRef": "/users/taro",
+            "content": content
+        ]) { error in
+            if error != nil {
+                fatalError("\(error)")
+            }
+        }
     }
 }

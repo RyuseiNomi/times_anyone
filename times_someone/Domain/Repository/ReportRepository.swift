@@ -13,5 +13,5 @@ protocol GetReportProtocol {
 }
 
 protocol SetReportProtocol {
-    func setReport()
+    func setReport(content: String)
 }

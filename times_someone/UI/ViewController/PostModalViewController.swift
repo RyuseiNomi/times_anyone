@@ -35,6 +35,8 @@ class PostModalViewController: UIViewController
         view.addSubview(textArea)
         
         /* Submit Button Setting */
+        //TODO テキストを折り返して表示
+        //TODO Enterでキーボードを閉じるのではなく、「完了」ボタンを押すとこキーボードが隠れるようにする
         submitButton.setTitle("投稿", for: UIControl.State.normal)
         submitButton.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         submitButton.layer.position = CGPoint(x: view.frame.width/2, y: 400)
