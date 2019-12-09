@@ -11,6 +11,7 @@ import UIKit
 
 class TimelineViewController: UIViewController
 {
+    let postedReports = [Dictionary<String, Any>.Values]()
     let timelineView = UITableView()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
@@ -50,7 +51,6 @@ class TimelineViewController: UIViewController
         postModal.modalPresentationStyle = .custom
         postModal.transitioningDelegate = self
         present(postModal, animated: true, completion: nil)
-        //navigationController?.pushViewController(postModal, animated: true)
     }
 }
 

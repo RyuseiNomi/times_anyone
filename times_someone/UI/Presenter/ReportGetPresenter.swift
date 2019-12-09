@@ -13,8 +13,10 @@ class ReportGetPresenter: ReportsView
     /**
      * Show reports who one person of
      */
-    @objc func getReports() {
-        self.getGetReportsUsecase().getAllReports()
+    func getReports() {
+        self.getGetReportsUsecase().getAllReports() { reports in
+            print(reports)
+        }
     }
     
     private func getGetReportsUsecase() -> GetReportsUsecase {

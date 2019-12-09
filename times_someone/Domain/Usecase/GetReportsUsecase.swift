@@ -10,22 +10,23 @@ import Foundation
 import Firebase
 
 class GetReportsUsecase: GetReportProtocol {
-    var reports = [String :Any]()
+    var reports = [Dictionary<String, Any>.Values]()
     let db = Firestore.firestore()
     
     /**
      * Get all reports from firestore
      */
-    public func getAllReports() {
+    public func getAllReports(completion: @escaping ([Dictionary<String, Any>.Values])->()) {
         let reportDocRef = db.collection("reports")
-        
-        reportDocRef.whereField("content", isEqualTo: true).getDocuments() { (querySnapshot, err) in
+        reportDocRef.getDocuments() { (querySnapshot, err) in
             if err == nil, let querySnapshot = querySnapshot {
                 for report in querySnapshot.documents {
                     let data = report.data()
-                    print(data)
+                    self.reports.append(data.values)
                 }
+                completion(self.reports)
             } else if err != nil {
+                completion(self.reports)
                 print("\(err)")
             }
         }
