@@ -11,7 +11,7 @@ import UIKit
 
 class TimelineViewController: UIViewController
 {
-    let postedReports = [Dictionary<String, Any>.Values]()
+    var postedReports = [Dictionary<String, Any>.Values]()
     let timelineView = UITableView()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
@@ -34,7 +34,10 @@ class TimelineViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reportGetPresenter.getReports()
+        reportGetPresenter.getReports() { fetchedReports in
+            self.postedReports = fetchedReports
+            print(self.postedReports[0])
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -59,13 +62,13 @@ extension TimelineViewController: UITableViewDataSource
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: Get report count from firebase
         // See https://qiita.com/abouch/items/3617ce37c4dd86932365
-        return 10
+        return postedReports.count
     }
     
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: Show report content each cell field
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = "row \(indexPath.row)"
+        //cell.textLabel?.text = postedReports[indexPath.row]
         return cell
     }
 }

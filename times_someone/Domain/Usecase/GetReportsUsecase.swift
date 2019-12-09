@@ -20,8 +20,9 @@ class GetReportsUsecase: GetReportProtocol {
         let reportDocRef = db.collection("reports")
         reportDocRef.getDocuments() { (querySnapshot, err) in
             if err == nil, let querySnapshot = querySnapshot {
-                for report in querySnapshot.documents {
+                for (index, report) in querySnapshot.documents.enumerated() {
                     let data = report.data()
+                    //TODO Report構造体を利用してデータを追加する
                     self.reports.append(data.values)
                 }
                 completion(self.reports)
