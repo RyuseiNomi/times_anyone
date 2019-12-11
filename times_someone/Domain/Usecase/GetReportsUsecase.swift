@@ -10,21 +10,25 @@ import Foundation
 import Firebase
 
 class GetReportsUsecase: GetReportProtocol {
-    
+    var reports = [Report]()
     let db = Firestore.firestore()
     
     /**
      * Get all reports from firestore
      */
-    public func getAllReports() {
-        let reportDocRef = db.collection("reports").document("hoge")
-        
-        reportDocRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
+    public func getAllReports(completion: @escaping ([Report])->()) {
+        let reportDocRef = db.collection("reports")
+        reportDocRef.getDocuments() { (querySnapshot, err) in
+            if err == nil, let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
+                    let data = document.data()
+                    let report = Report(author: data["author"], content: data["content"] as! String)
+                    self.reports.append(report)
+                }
+                completion(self.reports)
+            } else if err != nil {
+                completion(self.reports)
+                print("\(err)")
             }
         }
     }

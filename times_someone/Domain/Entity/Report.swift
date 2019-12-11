@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Reports {
-    var author: String
+struct Report {
+    var author: Any
     var content: String
 }

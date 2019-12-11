@@ -9,9 +9,9 @@
 import Foundation
 
 protocol GetReportProtocol {
-    func getAllReports()
+    func getAllReports(completion: @escaping ([Report])->())
 }
 
 protocol SetReportProtocol {
-    func setReport()
+    func setReport(content: String)
 }

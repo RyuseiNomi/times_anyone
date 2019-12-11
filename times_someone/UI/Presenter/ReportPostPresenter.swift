@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
-class ReportPostPresenter: ReportPostView {
-    
+class ReportPostPresenter: UIViewController, ReportPostView
+{
+    let saveDocument = Firestore.firestore().collection("reports").document()
     /**
      * Post report to firestore
      */
-    @objc public func postReport() {
-        print("aaa")
+    @objc public func postReport(_ sender:SubmitButton) {
+        self.getSetReportUsecase().setReport(content: sender.postContent!)
+    }
+    
+    private func getSetReportUsecase() -> SetReportUsecase {
+        let setReportUsecase = SetReportUsecase()
+        return setReportUsecase
     }
 }

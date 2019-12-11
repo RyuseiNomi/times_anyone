@@ -9,9 +9,9 @@
 import Foundation
 
 protocol ReportsView {
-    func getReports()
+    func getReports(completion: @escaping ([Report])->())
 }
 
 protocol ReportPostView {
-    func postReport()
+    func postReport(_ sender: SubmitButton)
 }
