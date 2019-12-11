@@ -9,5 +9,6 @@
 import Foundation
 
 struct Report {
-    var data: Any
+    var author: Any
+    var content: String
 }

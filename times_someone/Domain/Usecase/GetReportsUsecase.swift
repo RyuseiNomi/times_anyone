@@ -21,7 +21,8 @@ class GetReportsUsecase: GetReportProtocol {
         reportDocRef.getDocuments() { (querySnapshot, err) in
             if err == nil, let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
-                    let report = Report(data: document.data())
+                    let data = document.data()
+                    let report = Report(author: data["author"], content: data["content"] as! String)
                     self.reports.append(report)
                 }
                 completion(self.reports)

@@ -22,7 +22,7 @@ class TimelineViewController: UIViewController
         timelineView.frame = view.bounds
         timelineView.dataSource = self
         timelineView.delegate = self
-        view.addSubview(timelineView)
+        //view.addSubview(timelineView)
         
         /* Report Add Button View Setting */
         buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
@@ -36,7 +36,7 @@ class TimelineViewController: UIViewController
         super.viewWillAppear(animated)
         reportGetPresenter.getReports() { fetchedReports in
             self.postedReports = fetchedReports
-            print(self.postedReports[0].data)
+            self.view.addSubview(self.timelineView)
         }
     }
     
@@ -68,7 +68,7 @@ extension TimelineViewController: UITableViewDataSource
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: Show report content each cell field
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        //cell.textLabel?.text = postedReports[indexPath.row]
+        cell.textLabel?.text = self.postedReports[indexPath.row].content
         return cell
     }
 }
