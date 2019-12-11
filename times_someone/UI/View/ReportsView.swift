@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ReportsView {
-    func getReports(completion: @escaping ([Dictionary<String, Any>.Values])->())
+    func getReports(completion: @escaping ([Report])->())
 }
 
 protocol ReportPostView {

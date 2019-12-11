@@ -11,7 +11,7 @@ import UIKit
 
 class TimelineViewController: UIViewController
 {
-    var postedReports = [Dictionary<String, Any>.Values]()
+    var postedReports = [Report]()
     let timelineView = UITableView()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
@@ -36,7 +36,7 @@ class TimelineViewController: UIViewController
         super.viewWillAppear(animated)
         reportGetPresenter.getReports() { fetchedReports in
             self.postedReports = fetchedReports
-            print(self.postedReports[0])
+            print(self.postedReports[0].data)
         }
     }
     
