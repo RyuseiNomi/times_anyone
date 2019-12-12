@@ -13,5 +13,5 @@ protocol ReportsView {
 }
 
 protocol ReportPostView {
-    func postReport(_ sender: SubmitButton, completion: @escaping (Bool)->())
+    func postReport(content: String, completion: @escaping (Bool)->())
 }

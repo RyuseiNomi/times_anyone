@@ -42,10 +42,32 @@ class PostModalViewController: UIViewController
         submitButton.layer.position = CGPoint(x: view.frame.width/2, y: 400)
         submitButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
         //TODO postReportをこのクラス内でwrapして投稿の結果を受け取る
-        submitButton.addTarget(postPresenter, action: Selector(("postReport:")), for: .touchUpInside)
+        submitButton.addTarget(self, action: Selector(("postReport:")), for: .touchUpInside)
         view.addSubview(submitButton)
         
         view.backgroundColor = UIColor.white
+    }
+    
+    @objc func postReport(_ sender: SubmitButton) {
+        print(sender.postContent!)
+        self.getReportPostPresenter().postReport(content: sender.postContent!) { isSuccess in
+            self.displayAlert()
+        }
+    }
+    
+    private func getReportPostPresenter() -> ReportPostPresenter {
+        let postReport = ReportPostPresenter()
+        return postReport
+    }
+    
+    private func displayAlert() {
+        let alert: UIAlertController = UIAlertController(title: "アラート表示", message: "投稿しました", preferredStyle:  UIAlertController.Style.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
