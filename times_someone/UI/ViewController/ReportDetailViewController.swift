@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ReportDetailController.swift
 //  times_someone
 //
 //  Created by 能美龍星 on 2019/11/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ReportDetailViewController: UIViewController {
 
     let titleLabel = UILabel()
     
@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        titleLabel.text = "times_someone"
         titleLabel.textAlignment = .center
         view.addSubview(titleLabel)
     }
