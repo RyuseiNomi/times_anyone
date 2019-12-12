@@ -25,9 +25,9 @@ class SetReportUsecase: SetReportProtocol
                 fatalError("\(error)")
                 self.isSuccess = false
                 completion(self.isSuccess)
-            } else {
-                completion(self.isSuccess)
             }
+            print(self.isSuccess)
+            completion(self.isSuccess)
         }
     }
 }
