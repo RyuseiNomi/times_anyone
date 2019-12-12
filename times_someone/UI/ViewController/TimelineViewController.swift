@@ -22,7 +22,6 @@ class TimelineViewController: UIViewController
         timelineView.frame = view.bounds
         timelineView.dataSource = self
         timelineView.delegate = self
-        //view.addSubview(timelineView)
         
         /* Report Add Button View Setting */
         buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
@@ -60,13 +59,10 @@ class TimelineViewController: UIViewController
 extension TimelineViewController: UITableViewDataSource
 {
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Get report count from firebase
-        // See https://qiita.com/abouch/items/3617ce37c4dd86932365
         return postedReports.count
     }
     
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Show report content each cell field
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = self.postedReports[indexPath.row].content
         return cell
