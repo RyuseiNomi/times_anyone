@@ -41,6 +41,7 @@ class PostModalViewController: UIViewController
         submitButton.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         submitButton.layer.position = CGPoint(x: view.frame.width/2, y: 400)
         submitButton.backgroundColor = UIColor(red: 0.3, green: 0.7, blue: 0.6, alpha: 1)
+        //TODO postReportをこのクラス内でwrapして投稿の結果を受け取る
         submitButton.addTarget(postPresenter, action: Selector(("postReport:")), for: .touchUpInside)
         view.addSubview(submitButton)
         

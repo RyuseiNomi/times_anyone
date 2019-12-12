@@ -13,5 +13,5 @@ protocol GetReportProtocol {
 }
 
 protocol SetReportProtocol {
-    func setReport(content: String)
+    func setReport(content: String, completion: @escaping (Bool)->())
 }

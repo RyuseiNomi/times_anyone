@@ -12,16 +12,21 @@ import Firebase
 class SetReportUsecase: SetReportProtocol
 {
     let saveDocument = Firestore.firestore().collection("reports").document()
+    var isSuccess = true
     /**
      * Set a new Report to firestore
      */
-    public func setReport(content: String) {
+    public func setReport(content: String, completion: @escaping (Bool)->()) {
         saveDocument.setData([
             "authorRef": "/users/taro",
             "content": content
         ]) { error in
             if error != nil {
                 fatalError("\(error)")
+                self.isSuccess = false
+                completion(self.isSuccess)
+            } else {
+                completion(self.isSuccess)
             }
         }
     }

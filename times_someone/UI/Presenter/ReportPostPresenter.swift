@@ -16,8 +16,10 @@ class ReportPostPresenter: UIViewController, ReportPostView
     /**
      * Post report to firestore
      */
-    @objc public func postReport(_ sender:SubmitButton) {
-        self.getSetReportUsecase().setReport(content: sender.postContent!)
+    @objc public func postReport(_ sender:SubmitButton, completion: @escaping (Bool)->()) {
+        self.getSetReportUsecase().setReport(content: sender.postContent!) { isSuccess in
+            completion(isSuccess)
+        }
     }
     
     private func getSetReportUsecase() -> SetReportUsecase {
