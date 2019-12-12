@@ -62,11 +62,11 @@ class PostModalViewController: UIViewController
     
     private func displayAlert() {
         let alert: UIAlertController = UIAlertController(title: "アラート表示", message: "投稿しました", preferredStyle:  UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+        let action: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
-            print("OK")
+            self.dismiss(animated: true, completion: nil)
         })
-        alert.addAction(defaultAction)
+        alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
 }
