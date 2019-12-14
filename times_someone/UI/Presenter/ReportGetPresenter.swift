@@ -10,16 +10,16 @@ import Foundation
 
 class ReportGetPresenter: ReportsView
 {
-    var fetchedReports = [Report]()
     /**
      * Show reports who one person of
      */
     func getReports(completion: @escaping ([Report])->()) {
+        var fetchedReports = [Report]()
         self.getGetReportsUsecase().getAllReports() { reports in
             for key in reports{
-                self.fetchedReports.append(key)
+                fetchedReports.append(key)
             }
-            completion(self.fetchedReports)
+            completion(fetchedReports)
         }
     }
     

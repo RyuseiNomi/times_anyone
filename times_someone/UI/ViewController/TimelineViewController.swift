@@ -13,6 +13,7 @@ class TimelineViewController: UIViewController
 {
     var postedReports = [Report]()
     let timelineView = UITableView()
+    var refreshControl = UIRefreshControl()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
     let reportGetPresenter = ReportGetPresenter()
@@ -22,6 +23,8 @@ class TimelineViewController: UIViewController
         timelineView.frame = view.bounds
         timelineView.dataSource = self
         timelineView.delegate = self
+        timelineView.refreshControl = self.refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         
         /* Report Add Button View Setting */
         buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
@@ -33,10 +36,7 @@ class TimelineViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reportGetPresenter.getReports() { fetchedReports in
-            self.postedReports = fetchedReports
-            self.view.addSubview(self.timelineView)
-        }
+        self.loadReports()
     }
     
     override func viewWillLayoutSubviews() {
@@ -53,6 +53,21 @@ class TimelineViewController: UIViewController
         postModal.modalPresentationStyle = .custom
         postModal.transitioningDelegate = self
         present(postModal, animated: true, completion: nil)
+    }
+    
+    @objc private func loadReports() {
+        reportGetPresenter.getReports() { fetchedReports in
+            self.postedReports = fetchedReports
+            self.view.addSubview(self.timelineView)
+        }
+    }
+    
+    @objc private func refresh(sender: UIRefreshControl) {
+        reportGetPresenter.getReports() { fetchedReports in
+            self.postedReports = fetchedReports
+            self.timelineView.reloadData()
+            sender.endRefreshing()
+        }
     }
 }
 
