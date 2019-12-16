@@ -49,7 +49,6 @@ class PostModalViewController: UIViewController
     }
     
     @objc func postReport(_ sender: SubmitButton) {
-        print(sender.postContent!)
         self.getReportPostPresenter().postReport(content: sender.postContent!) { isSuccess in
             self.displayAlert()
         }

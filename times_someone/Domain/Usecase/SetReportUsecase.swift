@@ -32,7 +32,6 @@ class SetReportUsecase: SetReportProtocol
                 self.isSuccess = false
                 completion(self.isSuccess)
             }
-            print(self.isSuccess)
             completion(self.isSuccess)
         }
     }
@@ -40,7 +39,6 @@ class SetReportUsecase: SetReportProtocol
     private func getUserReference(completion: @escaping (DocumentReference)->()) {
         let userRefString = db.collection("users").document("taro")
         let userRef = db.document(userRefString.path)
-        print(userRef)
         completion(userRef)
     }
 }
