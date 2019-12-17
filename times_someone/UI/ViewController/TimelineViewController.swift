@@ -88,7 +88,7 @@ extension TimelineViewController: UITableViewDelegate
 {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ReportDetailViewController()
-        vc.titleLabel.text = "row \(indexPath.row)"
+        vc.titleLabel.text = "\(self.postedReports[indexPath.row].content)"
         navigationController?.pushViewController(vc, animated: true)
     }
 }
