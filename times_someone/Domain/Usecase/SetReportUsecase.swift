@@ -26,7 +26,7 @@ class SetReportUsecase: SetReportProtocol
         saveDocument.setData([
             "authorRef": self.userRef,
             "content": content,
-            "createdAt": self.getCurrentDate()
+            "createdAt": Timestamp(date: Date())
         ]) { error in
             if error != nil {
                 fatalError("\(error)")
@@ -41,10 +41,5 @@ class SetReportUsecase: SetReportProtocol
         let userRefString = db.collection("users").document("taro")
         let userRef = db.document(userRefString.path)
         completion(userRef)
-    }
-
-    public func getCurrentDate() -> NSDate {
-        let currentDate = NSDate()
-        return currentDate
     }
 }
