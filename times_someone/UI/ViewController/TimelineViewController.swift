@@ -17,6 +17,7 @@ class TimelineViewController: UIViewController
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
     let reportGetPresenter = ReportGetPresenter()
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         /* Time line Table View Setting */
@@ -80,7 +81,12 @@ extension TimelineViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCell") as! CustomTableViewCell
-        cell.textLabel?.text = self.postedReports[indexPath.row].content
+        cell.textField.text = self.postedReports[indexPath.row].content
+        
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
+        let date = self.postedReports[indexPath.row].createdAt.dateValue()
+        print(date)
+        cell.time.text = formatter.string(from: date as Date)
         return cell
     }
 }
