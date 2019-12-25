@@ -1,5 +1,5 @@
 //
-//  CustomTableViewCell.swift
+//  ReportCell.swift
 //  times_someone
 //
 //  Created by 能美龍星 on 2019/12/22.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CustomTableViewCell: UITableViewCell
+class ReportCell: UITableViewCell
 {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)

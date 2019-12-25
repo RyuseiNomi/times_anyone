@@ -25,7 +25,7 @@ class TimelineViewController: UIViewController
         timelineView.dataSource = self
         timelineView.delegate = self
         timelineView.refreshControl = self.refreshController
-        timelineView.register(CustomTableViewCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
+        timelineView.register(ReportCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
         refreshController.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
         
