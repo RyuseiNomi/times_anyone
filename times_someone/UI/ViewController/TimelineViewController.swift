@@ -25,7 +25,9 @@ class TimelineViewController: UIViewController
         timelineView.dataSource = self
         timelineView.delegate = self
         timelineView.refreshControl = self.refreshController
+        timelineView.register(CustomTableViewCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
         refreshController.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
         
         /* Report Add Button View Setting */
         buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
@@ -79,15 +81,12 @@ extension TimelineViewController: UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCell") as! CustomTableViewCell
-        cell.textField.text = self.postedReports[indexPath.row].content
-        
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
+        let reportCell = tableView.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath)
         let date = self.postedReports[indexPath.row].createdAt.dateValue()
-        print(date)
-        cell.time.text = formatter.string(from: date as Date)
-        return cell
+        
+        reportCell.textLabel?.text = self.postedReports[indexPath.row].content
+        reportCell.detailTextLabel?.text = formatter.string(from: date as Date)
+        return reportCell
     }
 }
 

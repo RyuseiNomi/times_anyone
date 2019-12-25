@@ -11,7 +11,11 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell
 {
-    let textField = UITextField()
-    let userImage = UIImageView()
-    let time = UITextField()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
