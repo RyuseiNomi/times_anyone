@@ -13,18 +13,21 @@ class TimelineViewController: UIViewController
 {
     var postedReports = [Report]()
     let timelineView = UITableView()
-    var refreshControl = UIRefreshControl()
+    var refreshController = UIRefreshControl()
     let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     let createReportButton = UIButton()
     let reportGetPresenter = ReportGetPresenter()
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         /* Time line Table View Setting */
         timelineView.frame = view.bounds
         timelineView.dataSource = self
         timelineView.delegate = self
-        timelineView.refreshControl = self.refreshControl
-        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        timelineView.refreshControl = self.refreshController
+        timelineView.register(ReportCell.self, forCellReuseIdentifier: "ReportCell") //Import Custom Cell Class
+        refreshController.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
         
         /* Report Add Button View Setting */
         buttonView.layer.position = CGPoint(x: view.frame.width - view.frame.width/10, y: view.frame.height - view.frame.height/12)
@@ -77,10 +80,13 @@ extension TimelineViewController: UITableViewDataSource
         return postedReports.count
     }
     
-    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = self.postedReports[indexPath.row].content
-        return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reportCell = tableView.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath)
+        let date = self.postedReports[indexPath.row].createdAt.dateValue()
+        
+        reportCell.textLabel?.text = self.postedReports[indexPath.row].content
+        reportCell.detailTextLabel?.text = formatter.string(from: date as Date)
+        return reportCell
     }
 }
 
