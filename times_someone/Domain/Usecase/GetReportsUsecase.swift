@@ -22,7 +22,7 @@ class GetReportsUsecase: GetReportProtocol {
             if err == nil, let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                     let data = document.data()
-                    let report = Report(author: data["author"], content: data["content"] as! String, createdAt: data["createdAt"] as! Timestamp)
+                    let report = Report(content: data["content"] as! String, createdAt: data["createdAt"] as! Timestamp)
                     self.reports.append(report)
                 }
                 completion(self.reports)

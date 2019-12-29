@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 struct Report {
-    var author: Any
     var content: String
     var createdAt: Timestamp
 }
