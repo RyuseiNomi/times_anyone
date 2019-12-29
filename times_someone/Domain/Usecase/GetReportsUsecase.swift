@@ -17,7 +17,7 @@ class GetReportsUsecase: GetReportProtocol {
      * Get all reports from firestore
      */
     public func getAllReports(completion: @escaping ([Report])->()) {
-        let reportDocRef = db.collection("reports").order(by: "createdAt", descending: true)
+        let reportDocRef = db.collection("users").document("taro").collection("reports").order(by: "createdAt", descending: true)
         reportDocRef.getDocuments() { (querySnapshot, err) in
             if err == nil, let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
