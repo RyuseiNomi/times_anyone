@@ -17,12 +17,12 @@ class GetReportsUsecase: GetReportProtocol {
      * Get all reports from firestore
      */
     public func getAllReports(completion: @escaping ([Report])->()) {
-        let reportDocRef = db.collection("reports").order(by: "createdAt", descending: true)
+        let reportDocRef = db.collection("users").document("taro").collection("reports").order(by: "createdAt", descending: true)
         reportDocRef.getDocuments() { (querySnapshot, err) in
             if err == nil, let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                     let data = document.data()
-                    let report = Report(author: data["author"], content: data["content"] as! String, createdAt: data["createdAt"] as! Timestamp)
+                    let report = Report(content: data["content"] as! String, createdAt: data["createdAt"] as! Timestamp)
                     self.reports.append(report)
                 }
                 completion(self.reports)

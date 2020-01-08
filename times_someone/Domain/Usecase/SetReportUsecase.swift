@@ -12,7 +12,7 @@ import Firebase
 class SetReportUsecase: SetReportProtocol
 {
     let db = Firestore.firestore()
-    let saveDocument = Firestore.firestore().collection("reports").document()
+    let reportDocument = Firestore.firestore().collection("users").document("taro").collection("reports").document()
     var isSuccess = true
     var userRef: DocumentReference!
     
@@ -20,11 +20,7 @@ class SetReportUsecase: SetReportProtocol
      * Set a new Report to firestore
      */
     public func setReport(content: String, completion: @escaping (Bool)->()) {
-        self.getUserReference() { userRef in
-            self.userRef = userRef
-        }
-        saveDocument.setData([
-            "authorRef": self.userRef,
+        reportDocument.setData([
             "content": content,
             "createdAt": Timestamp(date: Date())
         ]) { error in
@@ -35,11 +31,5 @@ class SetReportUsecase: SetReportProtocol
             }
             completion(self.isSuccess)
         }
-    }
-
-    private func getUserReference(completion: @escaping (DocumentReference)->()) {
-        let userRefString = db.collection("users").document("taro")
-        let userRef = db.document(userRefString.path)
-        completion(userRef)
     }
 }
